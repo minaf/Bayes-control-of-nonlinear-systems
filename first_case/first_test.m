@@ -96,10 +96,8 @@ y = y0+o;
 [P, m, theta, sig] = hammerstein_kernel_ident(F, u, y, n, tolerance);
 sigma_all(kl, 1) = sig;
 %%
-tic
 controller = bc_new_fmin(P, m, Mz, lx, b, ts, M, MC);
-toc
-cost= calculate_cost(controller, Mz, G, b, ts);
+
 
 %%
 % [P1, m1, theta_t] = hammerstein_pw(F, u, y, n, tolerance);
@@ -108,7 +106,7 @@ cost= calculate_cost(controller, Mz, G, b, ts);
 % tic
 % controller_t = bc_new_fmin(P1, m1, Mz, lx, b, ts, M, MC);
 % toc
-% cost= calculate_cost(controller_t, Mz, G, b, ts);
+
 
 %%
 
@@ -120,7 +118,7 @@ sigma_all(kl, 2) = sig;
 tic
 controller1 = bc_new_fmin(P1, m1, Mz, lx, b, ts, M, MC);
 toc
-cost1= calculate_cost(controller1, Mz, G, b, ts);
+
 %%
 z = [y u];
 orders = [0 n 0];
@@ -149,7 +147,7 @@ R = (R'+R)/2;
 
 controller2 = bc_new_fmin(P, med, Mz, lx, b, ts, M, MC);
 
-cost2= calculate_cost(controller2, Mz, G, b, ts);
+
 %%
 %K = tf(controller', [1 b zeros(1, lx-2)], -1);
 r = [0; randn(M-1, 1)];
