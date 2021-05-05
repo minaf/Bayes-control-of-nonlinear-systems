@@ -9,11 +9,10 @@ function [x] = bc_new_fmin(R, med, Mz, lx, b, ts, M, MC)
 n = size(med, 1);
 trials = zeros(n, MC);
 R = (R+R')/2;
-for k = 1:MC-1
+for k = 1:MC
     trials(:, k) = chol(2*R)*randn(size(med, 1),1)+med;
 end
 
-trials(:, MC) = med;
 
 p = impulse(Mz);
 
