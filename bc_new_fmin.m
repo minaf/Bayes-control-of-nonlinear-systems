@@ -17,7 +17,8 @@ end
 p = impulse(Mz);
 
 fu = @(x) fun_bc(x, trials, Mz, M, ts, b, lx, med, R);
-c = linear_kernel_app(med, R, Mz, lx, b);
+c = fun_init(trials, Mz, M, ts, b, lx, med, R);
+%c = linear_kernel_app(med, R, Mz, lx, b);
 [x, fval]= fmincon(fu, c, [], []);
 end
 
