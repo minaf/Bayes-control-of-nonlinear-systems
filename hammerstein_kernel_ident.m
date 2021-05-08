@@ -68,11 +68,10 @@ m =  C*y;
     beta_old = beta;
     for it = 0.1:0.1:0.9
         cost = (log(det(create_TC_kernel(it, n)))+trace((create_TC_kernel(it, n)))\(P+m*m'));
-        inv(A)*b
         %cost = (log(det(create_TC_kernel(it, n)))+ml'/(create_TC_kernel(it, n))*ml);
         if cost<=best_cost
             best_cost = cost;
-            beta = it
+            beta = it;
         end
     end
 
