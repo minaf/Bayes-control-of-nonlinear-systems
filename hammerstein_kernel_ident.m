@@ -86,7 +86,6 @@ m =  C*y;
    end
     K = create_TC_kernel(beta, n);
     l = l+1;
-  beta
 
 end
 
